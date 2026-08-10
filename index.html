@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Васильев Дмитрий — Разметка, электрика, сантехника</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #FFFFFF;
+      color: #2c2c2c;
+      line-height: 1.5;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #B64A47;
+      color: white;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 32px;
+      font-size: 15px;
+      font-weight: 500;
+      opacity: 0.95;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: #c45c4a;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      position: relative;
+    }
+
+    .hero-placeholder {
+      width: 320px;
+      height: 180px;
+      background: white;
+      border-radius: 4px;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+      align-items: start;
+    }
+
+    .section.reverse {
+      direction: rtl;
+    }
+
+    .section.reverse > * {
+      direction: ltr;
+    }
+
+    /* Illustration blocks */
+    .illustrations {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .illust-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .illust {
+      border-radius: 12px;
+      overflow: hidden;
+      flex: 1;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .illust img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Simple CSS illustrations */
+    .person {
+      width: 70px;
+      height: 90px;
+      position: relative;
+    }
+
+    .person .head {
+      width: 28px;
+      height: 28px;
+      background: #e8b89a;
+      border-radius: 50%;
+      margin: 0 auto 4px;
+    }
+
+    .person .body {
+      width: 50px;
+      height: 45px;
+      background: #c45c4a;
+      border-radius: 8px 8px 4px 4px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .person .arm {
+      position: absolute;
+      width: 12px;
+      height: 30px;
+      background: #c45c4a;
+      border-radius: 6px;
+      top: 32px;
+    }
+
+    .person .arm.left { left: -8px; transform: rotate(20deg); }
+    .person .arm.right { right: -8px; transform: rotate(-20deg); }
+
+    .wall {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #e8d5c4 0%, #d4c0a8 100%);
+      position: relative;
+    }
+
+    .laser-line {
+      position: absolute;
+      background: #e74c3c;
+      height: 2px;
+      width: 80%;
+      top: 50%;
+      left: 10%;
+    }
+
+    .laser-dot {
+      width: 8px;
+      height: 8px;
+      background: #e74c3c;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    /* Text blocks */
+    .textdiv {
+      margin: auto 0;
+    }
+
+    .text-block {
+      background: #FDE3D2;
+      border-radius: 16px;
+      padding: 32px 36px;
+    }
+
+    .text-block h2 {
+      color: #B64A47;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .text-block ol {
+      padding-left: 20px;
+    }
+
+    .text-block li {
+      margin-bottom: 10;
+      font-size: 18px;
+      color: #3a3a3a;
+    }
+
+    /* Special layout for some sections */
+    .section.full {
+      grid-template-columns: 1fr;
+    }
+
+    .two-col-illust {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Gallery */
+    .gallery-section {
+      margin-top: 40px;
+    }
+
+    .gallery-section h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .gallery-placeholder {
+      background: #ddd5c8;
+      height: 280px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 18px;
+    }
+
+    /* Contacts */
+    .contacts {
+      background: #f8e8d8;
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .contacts h2 {
+      color: #c45c4a;
+      margin-bottom: 12px;
+    }
+
+    /* Footer */
+    footer {
+      background: #c45c4a;
+      color: white;
+      text-align: center;
+      padding: 24px;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .section {
+        grid-template-columns: 1fr;
+      }
+      .section.reverse {
+        direction: ltr;
+      }
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+      }
+      nav a {
+        margin: 0 12px;
+      }
+      .hero {
+        height: 200px;
+      }
+      .hero-placeholder {
+        width: 200px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <b>МАСТЕР ВАСИЛЬЕВ ДМИТРИЙ</b>
+    </div>
+    <nav>
+      <a href="#about">ОБО МНЕ</a>
+      <a href="#gallery">ГАЛЕРЕЯ РАБОТ</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-placeholder"></div>
+    <div class="hero-placeholder"></div>
+  </div>
+
+  <div class="container">
+
+
+
+    <!-- КОНСУЛЬТАЦИЯ -->
+    <div class="section">
+      <div class="textdiv">
+        <div class="text-block">
+          <h2>КОНСУЛЬТАЦИЯ</h2>
+          <ol>
+            <li>Проведу анализ дизайн-проекта</li>
+            <li>Определю, что и куда нужно перенести или добавить</li>
+            <li>Согласую с вами перечень работ</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="illustrations">
+        <div class="illust">
+          <img src="./kons1.png">
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- РАЗМЕТКА -->
+    <div class="section reverse">
+      <div class="textdiv">
+        <div class="text-block">
+          <h2>РАЗМЕТКА</h2>
+          <ol>
+            <li>«Перенос» размеров с дизайн-проекта на стены кухни.</li>
+            <li>Нанесение на стену расположения силового разъема, 
+выводов горячего и холодного водоснабжения, канализации для дальнейшего 
+подключения кухонной техники</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="illustrations">
+        <div class="illust">
+            <img src="./kons2.png">
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- ЭЛЕКТРИКА -->
+    <div class="section">
+      <div class="textdiv">
+        <div class="text-block">
+          <h2>ЭЛЕКТРИКА</h2>
+          <ol>
+            <li>Высверлю отверстия для установки розеток</li>
+            <li>Прорежу штробы для укладки проводов</li>
+            <li>Установлю подрозетники</li>
+            <li>Уложу провода и выполню их соединения</li>
+            <li>Зашпаклюю штробы и зоны вокруг подрозетников</li>
+            <li>Сделаю сухую уборку после пыльных работ</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="illustrations">
+        <div class="illust">
+          <img src="./razm1.png">
+        </div>
+        <div class="illust">
+          <img src="./razm2.png">
+        </div>      
+      </div>
+
+    </div>
+
+
+
+    <!-- САНТЕХНИКА -->
+    <div class="section">
+      <div class="textdiv">
+        <div class="text-block">
+          <h2>САНТЕХНИКА</h2>
+          <ol>
+            <li>Перенесу выводы труб и канализацию</li>
+            <li>«Перенесу» воду к мойке с помощью полипропиленовых труб</li>
+            <li>Надежно соединю трубы специальным паяльником</li>
+            <li>Установлю кран для посудомоечной машины</li>
+            <li>После сборки мебели можно будет подключать мойку и посудомоечную машину</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="illustrations">
+        <div class="illust-row">
+          <div class="illust">
+            <img src="./trub1.png">
+          </div>
+          <div class="illust">
+            <img src="./trub2.png">
+          </div>
+        </div>
+        <div class="illust-row">
+          <div class="illust"></div>
+          <div class="illust">
+            <img src="./trub3.png">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ПОДКЛЮЧЕНИЕ -->
+    <div class="section">
+      <div class="textdiv">
+        <div class="text-block">
+          <h2>ПОДКЛЮЧЕНИЕ</h2>
+          <ol>
+            <li>Подключу смеситель к водоснабжению, при необходимости установка фильтра для воды</li>
+            <li>Подключу мойку к канализации</li>
+            <li>Подключу встроенной техники: посудомоечную машину, духовой шкаф, варочную панель, холодильник, вытяжку, СВЧ</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="illustrations">
+        <div class="illust-row">
+          <div class="illust">
+            <img src="./podkl1.png">
+          </div>
+          <div class="illust">
+            <img src="./podkl2.png">
+          </div>
+        </div>
+
+        <div class="illust-row">
+          <div class="illust">
+          </div>
+          <div class="illust">
+            <img src="./podkl3.png">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ГАЛЕРЕЯ -->
+    <div class="gallery-section" id="gallery">
+      <h2>галерея:</h2>
+      <div class="gallery-placeholder">
+        Здесь будет галерея работ
+      </div>
+    </div>
+
+    <!-- КОНТАКТЫ -->
+    <div class="contacts" id="about">
+      <h2>контакты</h2>
+      <p style="margin-top:8px; color:#555;">
+        Телефон / WhatsApp / Telegram<br>
+        <strong style="font-size:18px; color:#c45c4a;">+7 (XXX) XXX-XX-XX</strong>
+      </p>
+    </div>
+
+  </div>
+
+  <footer>
+    Васильев Дмитрий — электрика и сантехника на кухне
+  </footer>
+
+
+
+</body></html>
