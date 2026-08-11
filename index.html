@@ -12,7 +12,11 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Google Sans', Roboto;
+      src: url('./GoogleSans.woff2') format('woff2');
+      font-weight: bold;
+      font-style: normal;
+      /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
       background: #FFFFFF;
       color: #2c2c2c;
       line-height: 1.5;
@@ -33,8 +37,7 @@
 
     .logo {
       font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 1px;
+      font-weight: 900;
     }
 
     nav a {
@@ -122,42 +125,6 @@
       object-fit: cover;
     }
 
-    /* Simple CSS illustrations */
-    .person {
-      width: 70px;
-      height: 90px;
-      position: relative;
-    }
-
-    .person .head {
-      width: 28px;
-      height: 28px;
-      background: #e8b89a;
-      border-radius: 50%;
-      margin: 0 auto 4px;
-    }
-
-    .person .body {
-      width: 50px;
-      height: 45px;
-      background: #c45c4a;
-      border-radius: 8px 8px 4px 4px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .person .arm {
-      position: absolute;
-      width: 12px;
-      height: 30px;
-      background: #c45c4a;
-      border-radius: 6px;
-      top: 32px;
-    }
-
-    .person .arm.left { left: -8px; transform: rotate(20deg); }
-    .person .arm.right { right: -8px; transform: rotate(-20deg); }
-
     .wall {
       width: 100%;
       height: 100%;
@@ -196,9 +163,8 @@
     .text-block h2 {
       color: #B64A47;
       font-size: 26px;
-      font-weight: 700;
+      font-weight: bold;
       margin-bottom: 16px;
-      letter-spacing: 0.5px;
     }
 
     .text-block ol {
@@ -225,6 +191,7 @@
     /* Gallery */
     .gallery-section {
       margin-top: 40px;
+
     }
 
     .gallery-section h2 {
@@ -234,14 +201,26 @@
     }
 
     .gallery-placeholder {
-      background: #ddd5c8;
-      height: 280px;
+      display: grid;
+      gap: 12px;
+      height: auto;
+
       border-radius: 12px;
-      display: flex;
+      /*display: flex;
       align-items: center;
       justify-content: center;
       color: #999;
-      font-size: 18px;
+      font-size: 18px; */
+    }
+    .zoom-img {
+      width: 200px;
+      transition: transform 0.5s ease; /* Плавность анимации */
+      cursor: pointer;
+    }
+    .zoom-img:hover {
+      transform: scale(1.2); /* Увеличение в 1.5 раза */
+      position: relative;
+      z-index: 10; /* Чтобы картинка была поверх остальных элементов */
     }
 
     /* Contacts */
@@ -257,6 +236,8 @@
       color: #c45c4a;
       margin-bottom: 12px;
     }
+
+
 
     /* Footer */
     footer {
@@ -391,7 +372,7 @@
 
 
     <!-- САНТЕХНИКА -->
-    <div class="section">
+    <div class="section reverse">
       <div class="textdiv">
         <div class="text-block">
           <h2>САНТЕХНИКА</h2>
@@ -458,9 +439,45 @@
 
     <!-- ГАЛЕРЕЯ -->
     <div class="gallery-section" id="gallery">
-      <h2>галерея:</h2>
+      <h1>ГАЛЕРЕЯ:</h1>
       <div class="gallery-placeholder">
-        Здесь будет галерея работ
+
+        <div class="illust-row">
+          <div class="illust zoom-img">
+            <img src="gal1.jpg">
+          </div>
+          <div class="illust zoom-img">
+            <img src="gal2.jpg">
+          </div>
+        </div>
+        
+        <div class="illust-row">
+          <div class="illust zoom-img">
+            <img src="gal3.jpg">
+          </div>
+          <div class="illust zoom-img">
+            <img src="gal4.jpg">
+          </div>
+        </div>
+
+        <div class="illust-row">
+          <div class="illust zoom-img">
+            <img src="gal5.jpg">
+          </div>
+          <div class="illust zoom-img">
+            <img src="gal6.jpg">
+          </div>
+        </div>
+
+        <div class="illust-row">
+          <div class="illust zoom-img">
+            <img src="gal7.jpg">
+          </div>
+          <div class="illust zoom-img">
+            <img src="gal8.jpg">
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -468,8 +485,8 @@
     <div class="contacts" id="about">
       <h2>контакты</h2>
       <p style="margin-top:8px; color:#555;">
-        Телефон / WhatsApp / Telegram<br>
-        <strong style="font-size:18px; color:#c45c4a;">+7 (XXX) XXX-XX-XX</strong>
+        Телефон / Telegram / MAX<br>
+        <strong style="font-size:18px; color:#c45c4a;">+7 (911) 235-31-50</strong>
       </p>
     </div>
 
