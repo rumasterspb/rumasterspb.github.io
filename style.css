@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Google Sans', Roboto;
+  src: url('./GoogleSans.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
+  background: #FFFFFF;
+  color: #2c2c2c;
+  line-height: 1.5;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: #B64A47;
+  color: white;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 32px;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.95;
+  transition: opacity 0.2s;
+}
+
+nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: #c45c4a;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  margin-bottom: 10px;
+  align-items: start;
+  /*display: flex;
+  align-items: center;
+  justify-content: center; */
+  padding: 20px 20px;
+  /*gap: 40px;
+  position: relative;*/
+}
+
+.hero-placeholder {
+  width: 320px;
+  height: 180px;
+  background: white;
+  border-radius: 4px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 20px;
+  align-items: start;
+}
+
+.section.reverse {
+  direction: rtl;
+}
+
+.section.reverse > * {
+  direction: ltr;
+}
+
+/* Illustration blocks */
+.illustrations {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.illust-row {
+  display: flex;
+  gap: 12px;
+}
+
+.illust {
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 1;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.illust img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wall {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #e8d5c4 0%, #d4c0a8 100%);
+  position: relative;
+}
+
+.laser-line {
+  position: absolute;
+  background: #e74c3c;
+  height: 2px;
+  width: 80%;
+  top: 50%;
+  left: 10%;
+}
+
+.laser-dot {
+  width: 8px;
+  height: 8px;
+  background: #e74c3c;
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* Text blocks */
+.textdiv {
+  margin: auto 0;
+}
+
+.text-block {
+  background: #FDE3D2;
+  border-radius: 16px;
+  padding: 32px 36px;
+}
+
+.text-block p {
+  margin-bottom: 10;
+  font-size: 18px;
+  color: #3a3a3a;
+  margin: 0 auto;
+}
+
+.text-block h2 {
+  color: #B64A47;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.text-block ol {
+  padding-left: 20px;
+}
+
+.text-block li {
+  margin-bottom: 10;
+  font-size: 18px;
+  color: #3a3a3a;
+}
+
+/* Special layout for some sections */
+.section.full {
+  grid-template-columns: 1fr;
+}
+
+.two-col-illust {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Gallery */
+.gallery-section {
+  margin-top: 40px;
+
+}
+
+.gallery-section h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.gallery-placeholder {
+  display: grid;
+  gap: 12px;
+  height: auto;
+
+  border-radius: 12px;
+  /*display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 18px; */
+}
+.zoom-img {
+  width: 200px;
+  transition: transform 0.5s ease; /* Плавность анимации */
+  cursor: pointer;
+}
+.zoom-img:hover {
+  transform: scale(1.2); /* Увеличение в 1.5 раза */
+  position: relative;
+  z-index: 10; /* Чтобы картинка была поверх остальных элементов */
+}
+
+/* Contacts */
+.contacts {
+  background: #f8e8d8;
+  border-radius: 16px;
+  padding: 32px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.contacts h2 {
+  color: #c45c4a;
+  margin-bottom: 12px;
+}
+
+
+/* Footer */
+footer {
+  background: #c45c4a;
+  color: white;
+  text-align: center;
+  padding: 24px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+  .section.reverse {
+    direction: ltr;
+  }
+  header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  nav a {
+    margin: 0 12px;
+  }
+}
