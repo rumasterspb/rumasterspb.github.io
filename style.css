@@ -7,7 +7,7 @@
 body {
   font-family: 'Google Sans', Roboto;
   src: url('./GoogleSans.woff2') format('woff2');
-  font-weight: bold;
+  /*font-weight: bold;*/
   font-style: normal;
   /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
   background: #FFFFFF;
@@ -73,7 +73,7 @@ nav a:hover {
 
 /* ===== MAIN CONTENT ===== */
 .container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 40px 24px 80px;
 }
@@ -96,6 +96,7 @@ nav a:hover {
 
 /* Illustration blocks */
 .illustrations {
+  max-width: 50vh;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -160,14 +161,16 @@ nav a:hover {
 
 .text-block p {
   margin-bottom: 10;
-  font-size: 18px;
+  /*18px*/
+  font-size: 16px;
   color: #3a3a3a;
   margin: 0 auto;
 }
 
 .text-block h2 {
   color: #B64A47;
-  font-size: 26px;
+  /*26*/
+  font-size: 22px;
   font-weight: bold;
   margin-bottom: 16px;
 }
@@ -178,7 +181,9 @@ nav a:hover {
 
 .text-block li {
   margin-bottom: 10;
+  /*18*/
   font-size: 18px;
+  font-weight: 50;
   color: #3a3a3a;
 }
 
@@ -253,8 +258,11 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .section {
+    grid-template-columns: 1fr;
+  }
+  .hero {
     grid-template-columns: 1fr;
   }
   .section.reverse {
